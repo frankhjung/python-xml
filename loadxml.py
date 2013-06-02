@@ -4,65 +4,37 @@
 Simple example to demonstrate Python's ability to read from an XML file.
 """
 
-import getopt
-import os.path
-import pprint
-import re
+import argparse
 import sys
-import xml.dom.minidom
 import xml.etree.ElementTree
-
-""" Constants """
-TEST_XML = 'test.xml'
-
-def usage():
-    """ Print usage message. """
-    print """
-NAME
-
-    loadxml - a Python example program to show XML processing
-
-SYNOPSIS
-
-    loadxml [options]
-
-OPTIONS
-
-    -f filename     alternate XML document
-    -h              help
-    -v              verbose
-"""
 
 def main(argv):
     """ Parse command line parameters, process XML document. """
-    try:
-        opts, args = getopt.getopt(argv, 'hvf:', ['help', 'verbose', 'file='])
-    except getopt.GetoptError:
-        usage()
-        sys.exit(2)
-
-    # process command line parameters
-    filename = TEST_XML
-    verbose = False
-    for opt, arg in opts:
-        if opt in ('-h', '--help'):
-            usage()
-            sys.exit(0)
-        elif opt in ('-v', '--verbose'):
-            verbose = True
-        elif opt in ('-f', '--file'):
-            filename = arg
+    parser = argparse.ArgumentParser(
+            prog='loadxml.py', 
+            usage='%(prog)s [options]', 
+            description='a Python example program to show XML processing',
+            epilog='(c) 2013 Frank H Jung')
+    parser.add_argument('--version', action='version', version='%(prog)s 0.0.1')
+    parser.add_argument('-v', '--verbose', help='verbose output', action='count')
+    parser.add_argument('infile', nargs='?', type=argparse.FileType('r'), default='test.xml', help='alternate XML file to test')
+    
+    # process command line arguments
+    args = parser.parse_args()
+    infile = args.infile
+    verbose = args.verbose
 
     # show command parameters
     example = 0
     if verbose:
         example += 1
-        print "\n(%s) show a specific year" % (example)
+        print "\n(%s) dump XML file" % (example)
         print "\tverbose = %s" % (verbose)
-        print "\tfilename = %s" % (filename)
+        print "\tinfile = %s" % (infile.name)
+        print "\tdata:\n%s" % (infile.read())
 
     # load XML document from file
-    xmldoc = loadFromFile(filename)
+    xmldoc = xml.etree.ElementTree.parse(infile.name)
 
     # dump XML document
     if verbose:
@@ -82,13 +54,6 @@ def main(argv):
     turnovers = getAllYears(xmldoc)
     for t in turnovers:
         print "\tYear %s has turnover of %s" % (t.attrib['id'], t.text)
-
-def loadFromFile(name):
-    """ Load XML from file. """
-    if not os.path.exists(name):
-        print "ERROR: file %s not found" % name
-        sys.exit(1)
-    return xml.etree.ElementTree.parse(name)
 
 def getYear(doc, year):
     """ Show turnover for a specific year. """
