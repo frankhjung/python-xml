@@ -5,13 +5,14 @@ Simple example to demonstrate Python's ability to read from an XML file.
 """
 
 import argparse
+import os.path
 import sys
 import xml.etree.ElementTree
 
 def main(argv):
     """ Parse command line parameters, process XML document. """
     parser = argparse.ArgumentParser(
-            prog='loadxml.py', 
+            prog=os.path.basename(sys.argv[0]), 
             usage='%(prog)s [options]', 
             description='a Python example program to show XML processing',
             epilog='(c) 2013 Frank H Jung')
@@ -21,6 +22,7 @@ def main(argv):
     
     # process command line arguments
     args = parser.parse_args()
+    prog = parser.prog
     infile = args.infile
     verbose = args.verbose
 
@@ -41,13 +43,14 @@ def main(argv):
     # show command parameters
     if verbose:
         print "\n(3) dump XML file"
-        print "\tverbose = %s" % (verbose)
         print "\tinfile = %s" % (infile.name)
+        print "\tprog = %s" % (prog)
+        print "\tverbose = %s" % (verbose)
         print "\tdata:\n%s" % (infile.read())
 
     # dump XML document
     if verbose:
-        print "\n(4) dump the XML that was read"
+        print "(4) dump the XML that was read"
         xml.etree.ElementTree.dump(xmldoc)
 
 def getYear(doc, year):
