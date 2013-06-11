@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# coding=utf-8
 
 """
 Simple example to demonstrate Python's ability to read from an XML file.
@@ -15,7 +16,7 @@ def main(argv):
             prog=os.path.basename(sys.argv[0]), 
             usage='%(prog)s [options]', 
             description='a Python example program to show XML processing',
-            epilog='(c) 2013 Frank H Jung')
+            epilog='© 2013 Frank H Jung')
     parser.add_argument('infile', nargs='?', type=argparse.FileType('r'), default='test.xml', help='alternate XML file to test')
     parser.add_argument('-v', '--verbose', help='verbose output', action='count')
     parser.add_argument('--version', action='version', version='%(prog)s 0.0.1')
