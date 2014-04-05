@@ -1,4 +1,7 @@
-target/
 *~
 *.bak
+*,cover
+.coverage
 *.pyc
+*.swp
+target/
