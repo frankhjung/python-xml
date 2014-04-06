@@ -82,7 +82,7 @@ class TestEmployees(unittest.TestCase):
         employees = Employees(self.TEST_FILE)
         self.assertIsNotNone(employees, 'expected employees')
         self.assertEqual(
-            employees.getAllByYear(2001), 0,
+            employees.getAllByYear(2001), None,
             "expected no turnover for this year")
 
     def tearDown(self):

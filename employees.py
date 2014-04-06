@@ -35,10 +35,10 @@ class Employees:
 
     def getById(self, id):
         """ Returns turnover for all years for an employee. """
-        total = 0
         years = self.employees.findall(
             ".//employee[@id='%s']/turnover/year" % (id))
         if len(years) > 0:
+            total = 0
             for y in years:
                 total += int(y.text)
         else:
@@ -47,10 +47,10 @@ class Employees:
 
     def getByName(self, name):
         """ Returns turnover for all years for an employee. """
-        total = 0
         years = self.employees.findall(
             ".//employee[@name='%s']/turnover/year" % (name))
         if len(years) > 0:
+            total = 0
             for y in years:
                 total += int(y.text)
         else:
@@ -59,10 +59,10 @@ class Employees:
 
     def getByYear(self, name, year):
         """ Returns turnover for an employees by year. """
-        total = 0
         years = self.employees.findall(
             ".//employee[@name='%s']/turnover/year[@id='%s']" % (name, year))
         if len(years) > 0:
+            total = 0
             for y in years:
                 total += int(y.text)
         else:
@@ -71,10 +71,13 @@ class Employees:
 
     def getAllByYear(self, year):
         """ Returns turnover for all employees by year. """
-        total = 0
         years = self.employees.findall(".//turnover/year[@id='%s']" % (year))
-        for y in years:
-            total += int(y.text)
+        if len(years) > 0:
+            total = 0
+            for y in years:
+                total += int(y.text)
+        else:
+            total = None
         return total
 
 #EOF

@@ -28,7 +28,7 @@ cover:
 	python-coverage report --include=testemployees.py,employees.py,main.py 
 
 test:
-	# Run unit tests (unit2 discover -v)
+	# Run unit tests
 	python -m unittest discover -v
 
 doc: force_doc
