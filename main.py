@@ -39,20 +39,16 @@ def main(argv=sys.argv):
 
     # process command line arguments
     args = parser.parse_args()
-    prog = parser.prog
-    infile = args.infile
-    verbose = args.verbose
 
     # load employees from XML
-    employees = Employees(infile)
+    employees = Employees(args.infile)
 
     # show command parameters
-    if verbose:
+    if args.verbose:
         print "\nShow command line parameters ..."
-        print "\tinfile = %s" % (infile.name)
-        print "\tprog = %s" % (prog)
-        print "\tverbose = %s" % (verbose)
-        print "\tdata:\n%s" % (infile.read())
+        print "\tinfile = %s" % (args.infile.name)
+        print "\tprog = %s" % (parser.prog)
+        print "\tdata:\n%s" % (args.infile.read())
 
     print "\nDump XML document ..."
     print employees.dump()
