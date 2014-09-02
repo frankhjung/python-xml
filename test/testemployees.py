@@ -1,11 +1,11 @@
-#!/usr/bin/python
-# coding=utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 Run unit tests for YAML file processing example, Employees.
 """
 
-from employees import Employees
+from employees.employees import Employees
 import os
 import unittest
 
@@ -14,7 +14,13 @@ class TestEmployees(unittest.TestCase):
 
     """ Tests for Employees. """
 
-    TEST_FILE = 'test.xml'
+    __version__ = Employees.__version__
+
+    TEST_FILE = 'data/test.xml'
+
+    @classmethod
+    def setUpClass(cls):
+        print cls.__name__, cls.__version__
 
     def setUp(self):
         testFile = os.path.join(os.getcwd(), self.TEST_FILE)
@@ -72,17 +78,17 @@ class TestEmployees(unittest.TestCase):
         turnover = employees.getByYear('frank', 2001)
         self.assertIsNone(turnover)
 
-    def testTurnoverAllByYear(self):
+    def testTurnoverTotalByYear(self):
         employees = Employees(self.TEST_FILE)
         self.assertIsNotNone(employees, 'expected employees')
-        turnover = employees.getAllByYear(2012)
+        turnover = employees.getTotalByYear(2012)
         self.assertEqual(turnover, 270000)
 
     def testZeroTurnover(self):
         employees = Employees(self.TEST_FILE)
         self.assertIsNotNone(employees, 'expected employees')
         self.assertEqual(
-            employees.getAllByYear(2001), None,
+            employees.getTotalByYear(2001), None,
             "expected no turnover for this year")
 
     def tearDown(self):

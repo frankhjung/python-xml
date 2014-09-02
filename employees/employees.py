@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# coding=utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 Read Employee data to return turnover information.
@@ -10,6 +10,8 @@ This is a example Python program to read and process XML files.
 class Employees:
 
     """ Read Employee data to return turnover information. """
+
+    __version__ = '0.1.0'
 
     def __init__(self, infile=None):
         self.employees = None
@@ -69,7 +71,7 @@ class Employees:
             total = None
         return total
 
-    def getAllByYear(self, year):
+    def getTotalByYear(self, year):
         """ Returns turnover for all employees by year. """
         years = self.employees.findall(".//turnover/year[@id='%s']" % (year))
         if len(years) > 0:

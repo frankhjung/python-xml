@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# Processing XML with Python documentation build configuration file, created by
-# sphinx-quickstart on Sat Apr  5 17:49:10 2014.
+# Processing YAML with Python Example documentation build configuration file, created by
+# sphinx-quickstart on Fri Apr  4 10:08:55 2014.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Processing XML with Python'
+project = u'Processing YAML with Python'
 copyright = u'2014, Frank H Jung'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -120,7 +120,7 @@ html_theme = 'default'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['.static', '../target/cover']
+html_static_path = ['.static', '../target/cover', '../target/test']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -164,7 +164,7 @@ html_static_path = ['.static', '../target/cover']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ProcessingXMLwithPython'
+htmlhelp_basename = 'ProcessingYAMLwithPython'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -183,7 +183,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'ProcessingXMLwithPython.tex', u'Processing XML with Python',
+  ('index', 'ProcessingYAMLwithPython.tex', u'Processing YAML with Python',
    u'Frank H Jung', 'manual'),
 ]
 
@@ -213,7 +213,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'processingxmlwithpython', u'Processing XML with Python',
+    ('index', 'processingyamlwithpython', u'Processing YAML with Python',
      [u'Frank H Jung'], 1)
 ]
 
@@ -227,8 +227,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'ProcessingXMLwithPython', u'Processing XML with Python',
-   u'Frank H Jung', 'ProcessingXMLwithPython', 'One line description of project.',
+  ('index', 'ProcessingYAMLwithPython', u'Processing YAML with Python',
+   u'Frank H Jung', 'ProcessingYAMLwithPython', 'One line description of project.',
    'Miscellaneous'),
 ]
 

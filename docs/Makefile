@@ -2,15 +2,15 @@
 #
 
 # You can set these variables from the command line.
-SPHINXOPTS    = 
+SPHINXOPTS    = -a -q
 SPHINXBUILD   = sphinx-build
 PAPER         =
-BUILDDIR      = ../target/doc
+BUILDDIR      = ../target/docs
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
-ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+ALLSPHINXOPTS   = $(SPHINXOPTS) -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
@@ -77,17 +77,17 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/ProcessingXMLwithPython.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/ProcessingYAMLwithPython.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/ProcessingXMLwithPython.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/ProcessingYAMLwithPython.qhc"
 
 devhelp:
 	$(SPHINXBUILD) -b devhelp $(ALLSPHINXOPTS) $(BUILDDIR)/devhelp
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/ProcessingXMLwithPython"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/ProcessingXMLwithPython"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/ProcessingYAMLwithPython"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/ProcessingYAMLwithPython"
 	@echo "# devhelp"
 
 epub:

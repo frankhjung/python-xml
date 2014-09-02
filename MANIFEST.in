@@ -1,0 +1,6 @@
+include data/test.yml
+include employees/*.py
+include Makefile
+include test/*.py
+include *.txt
+recursive-include doc Makefile *.py *.rst
