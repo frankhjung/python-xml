@@ -10,7 +10,7 @@ SPACE:= $(EMPTY) $(EMPTY)
 
 COVER_DIR = target/cover
 # srcs used by pychecker
-SRCS=employees/main.py employees/employees.py test/testemployees.py
+SRCS=main.py employees/employees.py test/testemployees.py
 SRCS_LIST=$(subst $(SPACE),$(COMMA),$(SRCS))
 
 .PROXY: all
@@ -18,9 +18,10 @@ SRCS_LIST=$(subst $(SPACE),$(COMMA),$(SRCS))
 all: check cover run test doc dist
 
 help:
-	@echo "Default targets: all"
-	@echo "  all: check cover run test doc dist"
-	@echo "  clean: delete all generated files"
+	@echo "\nMakefile"
+	@echo "\nDefault targets: all\n"
+	@echo "\tall: check cover run test doc dist"
+	@echo "\tclean: delete all generated files\n"
 
 check:
 	# Check with PyChecker
@@ -32,19 +33,19 @@ check:
 
 cover:
 	# Run main module
-	python-coverage run --source=employees --include=main.py,employees.py -m employees.main
+	python-coverage run --include=main.py,employees.employees.py -m main
 	# Run main module with verbose and test data
-	python-coverage run -a --source=employees --include=main.py,employees.py -m employees.main -v data/test.xml
+	python-coverage run -a --include=main.py,employees.employees.py -m main -v data/test.xml
 	# Run unit tests (append results)
-	python-coverage run -a --source=employees --include=main.py,employees.py -m test.testemployees
+	python-coverage run -a --include=main.py,employees.employees.py -m test.testemployees
 	# Annotate file to see what has been tested
-	python-coverage annotate employees/employees.py employees/main.py
+	python-coverage annotate employees/employees.py main.py
 	# Generate unit test coverage report
 	python-coverage report
 
 run:
 	# Run main
-	python -m employees.main -v data/test.xml
+	python -m main -v data/test.xml
 
 test: force_make
 	# Run unit tests
@@ -82,7 +83,7 @@ clean: force_make
 	$(RM) -v *,cover
 	$(RM) -v MANIFEST
 	$(RM) -v .noseids
-	$(RM) -v *.pyc *.pyo
+	$(RM) -v *.pyc *.pyo *.pyo,cover
 	$(RM) -v employees/*.pyc employees/*.pyo employees/*.py,cover
 	$(RM) -v test/*.pyc test/*.pyo test/*.py,cover
 	$(RM) -rf target

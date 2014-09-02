@@ -1,6 +1,7 @@
-include data/test.yml
+recursive-include doc Makefile *.py *.rst
+include data/test.xml
 include employees/*.py
+include main.py
 include Makefile
 include test/*.py
 include *.txt
-recursive-include doc Makefile *.py *.rst

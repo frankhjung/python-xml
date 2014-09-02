@@ -6,7 +6,7 @@ Read Employee data to return turnover information.
 This is a example Python program to read and process XML files.
 """
 
-from employees import Employees
+from employees.employees import Employees
 import argparse
 import logging
 import os.path

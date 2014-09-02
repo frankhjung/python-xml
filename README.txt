@@ -1,6 +1,6 @@
 
 ===========================
-Processing YAML with Python 
+Processing XML with Python 
 ===========================
 
 This is an example Python project used to demonstrate:
@@ -9,7 +9,7 @@ This is an example Python project used to demonstrate:
 * check test code coverage 
 * create documentation using Sphinx
 * document a module using PyDoc
-* process data from a YAML file
+* process data from a XML file
 * unittest modules
 
 .. EOF
