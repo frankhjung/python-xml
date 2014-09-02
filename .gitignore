@@ -2,6 +2,14 @@
 *.bak
 *,cover
 .coverage
+dist/
+htmlcov/
+MANIFEST
+.noseids
 *.pyc
+__pycache__
+*.pyo
+.Python
+results.html
 *.swp
 target/
