@@ -5,6 +5,7 @@
 # - python -m unittest discover -v
 
 .DEFAULT_GOAL := help
+.PHONY: check run test doc clean help
 
 COMMA:= ,
 EMPTY:=
@@ -19,7 +20,7 @@ all: check cover run test doc dist
 
 help:
 	@echo
-	@echo "Default targets: all"
+	@echo "Default goal: ${.DEFAULT_GOAL}"
 	@echo "  all:   check cover run test doc dist"
 	@echo "  check: validate code and distribution config"
 	@echo "  cover: run test coverage report"
@@ -54,7 +55,7 @@ run:
 	# Run main
 	python -m main -v data/test.xml
 
-test: force_make
+test:
 	# Run unit tests
 	# python -m unittest discover -v
 	# List nodetests plugins using nosetests --plugins -vv
@@ -67,14 +68,14 @@ test: force_make
 	# Test documentation (run coverage first)
 	# (cd docs; make doctest; make linkcheck)
 
-doc: force_make
+doc:
 	# Creating coverage HTML report to be included in final documentation
 	$(RM) -rf $(COVER_DIR)
 	python-coverage html -d $(COVER_DIR)
 	# Create Sphinx documentation
 	(cd docs; make singlehtml)
 
-dist: force_make
+dist:
 	# Copy readme for use in distribution
 	cp -f README.md README
 	# Create source package and build distribution
@@ -82,7 +83,7 @@ dist: force_make
 	python setup.py sdist --dist-dir=target/dist 
 	python setup.py build --build-base=target/build
 
-clean: force_make 
+clean:
 	# Cleaning workspace
 	python-coverage erase
 	# Clean build distribution
@@ -97,8 +98,5 @@ clean: force_make
 	$(RM) -v *.pyc *.pyo *.pyo,cover
 	$(RM) -v README
 	$(RM) -v test/*.pyc test/*.pyo test/*.py,cover
-
-force_make:
-	true
 
 #EOF
