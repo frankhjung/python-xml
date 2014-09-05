@@ -68,6 +68,8 @@ doc: force_make
 	(cd docs; make singlehtml)
 
 dist: force_make
+	# Copy readme for use in distribution
+	cp -f README.md README
 	# Create source package and build distribution
 	python setup.py clean
 	python setup.py sdist --dist-dir=target/dist 
@@ -80,13 +82,14 @@ clean: force_make
 	python setup.py clean
 	# Clean generated documents
 	(cd docs; make clean)
+	$(RM) -rf target
 	$(RM) -v *,cover
+	$(RM) -v employees/*.pyc employees/*.pyo employees/*.py,cover
 	$(RM) -v MANIFEST
 	$(RM) -v .noseids
 	$(RM) -v *.pyc *.pyo *.pyo,cover
-	$(RM) -v employees/*.pyc employees/*.pyo employees/*.py,cover
+	$(RM) -v README
 	$(RM) -v test/*.pyc test/*.pyo test/*.py,cover
-	$(RM) -rf target
 
 force_make:
 	true

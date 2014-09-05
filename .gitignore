@@ -10,6 +10,7 @@ MANIFEST
 __pycache__
 *.pyo
 .Python
+README
 results.html
 *.swp
 target/
