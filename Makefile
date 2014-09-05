@@ -18,10 +18,17 @@ SRCS_LIST=$(subst $(SPACE),$(COMMA),$(SRCS))
 all: check cover run test doc dist
 
 help:
-	@echo "\nMakefile"
-	@echo "\nDefault targets: all\n"
-	@echo "\tall: check cover run test doc dist"
-	@echo "\tclean: delete all generated files\n"
+	@echo
+	@echo "Default targets: all"
+	@echo "  all:   check cover run test doc dist"
+	@echo "  check: validate code and distribution config"
+	@echo "  cover: run test coverage report"
+	@echo "  run:   run against test data"
+	@echo "  test:  run unit test"
+	@echo "  doc:   create documentation including test converage and results"
+	@echo "  dist:  create a distrbution archive"
+	@echo "  clean: delete all generated files"
+	@echo
 
 check:
 	# Check with PyChecker
