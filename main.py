@@ -55,19 +55,19 @@ def main(argv=sys.argv):
     # load employees from XML
     e = Employees(infile)
 
-    logger.debug("infile ......................: {s}".format(s=infile.name))
-    logger.debug("prog ........................: {s}".format(s=prog))
-    logger.debug("verbose .....................: {s}".format(s=verbose))
-    logger.debug("dump ........................: \n{s}".format(s=e.dump()))
+    logger.debug("infile ......................: {}".format(infile.name))
+    logger.debug("prog ........................: {}".format(prog))
+    logger.debug("verbose .....................: {}".format(verbose))
+    logger.debug("dump ........................: \n{}".format(e.dump()))
 
     t = e.getById(3)
-    logger.debug("name for id 3 ...............: {s}".format(s=t))
+    logger.debug("name for id 3 ...............: {}".format(t))
 
     t = e.getByName('frank')
     logger.debug("turnover for frank ..........: ${:,}".format(t))
 
     t = e.getByYear(2012, 'frank')
-    logger.debug("turnover for frank in 2012 ..: {s}".format(s=t))
+    logger.debug("turnover for frank in 2012 ..: {}".format(t))
 
     t = e.getTotalByYear(2012)
     logger.debug("turnover for 2012 ...........: ${:,}".format(t))

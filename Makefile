@@ -4,6 +4,8 @@
 # - python -m test.testemployees -v
 # - python -m unittest discover -v
 
+.DEFAULT_GOAL := help
+
 COMMA:= ,
 EMPTY:=
 SPACE:= $(EMPTY) $(EMPTY)
@@ -12,8 +14,6 @@ COVER_DIR = target/cover
 # srcs used by pychecker
 SRCS=main.py employees/employees.py test/testemployees.py
 SRCS_LIST=$(subst $(SPACE),$(COMMA),$(SRCS))
-
-.PROXY: all
 
 all: check cover run test doc dist
 
