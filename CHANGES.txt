@@ -1,1 +1,2 @@
+v0.2.0, 05-Oct-2014 -- Use map/reduce.
 v0.1.0, 14-Apr-2014 -- Initial release.

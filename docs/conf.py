@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 #
 # Processing YAML with Python Example documentation build configuration file, created by
 # sphinx-quickstart on Fri Apr  4 10:08:55 2014.
