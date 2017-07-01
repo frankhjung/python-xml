@@ -78,5 +78,3 @@ class Employees:
         else:
             total = None
         return total
-
-#EOF

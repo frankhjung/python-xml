@@ -104,5 +104,3 @@ if __name__ == '__main__':
     # the following gives verbose output by default
     # suite = unittest.TestLoader().loadTestsFromTestCase(TestEmployees)
     # unittest.TextTestRunner(verbosity=2).run(suite)
-
-#EOF

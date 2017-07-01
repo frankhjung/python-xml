@@ -4,7 +4,7 @@
 # - python -m test.testemployees -v
 # - python -m unittest discover -v
 
-.DEFAULT_GOAL := help
+.DEFAULT_GOAL := all
 .PHONY: check run test doc clean help
 
 COMMA:= ,
@@ -99,4 +99,3 @@ clean:
 	$(RM) -v README
 	$(RM) -v test/*.pyc test/*.pyo test/*.py,cover
 
-#EOF
