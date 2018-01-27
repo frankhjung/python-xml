@@ -24,7 +24,7 @@ Or::
 
 The basic report of unit test results is::
 
-   TestEmployees 0.1.0
+   TestEmployees 0.3.0
    testDump (__main__.TestEmployees) ... ok
    testLoadFromFile1 (__main__.TestEmployees) ... ok
    testLoadFromFile2 (__main__.TestEmployees) ... ok

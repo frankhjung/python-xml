@@ -3,6 +3,7 @@ include employees/*.py
 include main.py
 include Makefile
 include README
+include LICENSE
 include test/*.py
 include *.txt
 recursive-include docs *.rst

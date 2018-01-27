@@ -47,7 +47,7 @@ Help on module :download:`employees.py <../employees/employees.py>`::
       |  ----------------------------------------------------------------------
       |  Data and other attributes defined here:
       |  
-      |  __version__ = '0.1.0'
+      |  __version__ = '0.3.0'
 
 
 .. EOF

@@ -17,13 +17,13 @@ def main(argv=sys.argv):
 
     """ Test employees class. """
 
-    __version__ = '0.1.0'
+    __version__ = '0.3.0'
 
     parser = argparse.ArgumentParser(
         prog=os.path.basename(argv[0]),
         usage='%(prog)s [options]',
         description='a Python example program to show XML processing',
-        epilog='© 2014 Frank H Jung mailto:frankhjung@linux.com')
+        epilog='© 2013-2018 Frank H Jung mailto:frankhjung@linux.com')
     parser.add_argument(
         'infile',
         nargs='?',

@@ -11,7 +11,7 @@ setup(
     author_email='frankhjung@linux.com',
     packages=['employees', 'test'],
     url='https://github.com/frankhjung/python-yaml',
-    license='LICENSE.txt',
+    license='LICENSE',
     description='Python example project.',
     long_description=open('README.md').read(),
 )

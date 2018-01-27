@@ -68,7 +68,7 @@ Help on module :download:`test.testemployees.py <../test/testemployees.py>`::
       |  
       |  TEST_FILE = 'data/test.xml'
       |  
-      |  __version__ = '0.1.0'
+      |  __version__ = '0.3.0'
       |  
       |  ----------------------------------------------------------------------
       |  Methods inherited from unittest.case.TestCase:
