@@ -59,7 +59,15 @@ class TestEmployees(unittest.TestCase):
         employees = Employees(self.TEST_FILE)
         self.assertIsNotNone(employees, 'expected employees')
         turnover = employees.getById('004')
+        self.assertIsNotNone(turnover, "expected employee with ID 004")
         self.assertEqual(turnover, 130000 + 220000 + 210000)
+
+    def testId(self):
+        employees = Employees(self.TEST_FILE)
+        self.assertIsNotNone(employees, 'expected employees')
+        turnover = employees.getById('003')
+        self.assertIsNotNone(turnover, "expected employee with ID 003")
+        self.assertEqual(turnover, 100000 + 140000 + 200000)
 
     def testNoId(self):
         employees = Employees(self.TEST_FILE)

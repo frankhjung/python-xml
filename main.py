@@ -60,17 +60,17 @@ def main(argv=sys.argv):
     logger.debug("verbose .....................: {}".format(verbose))
     logger.debug("dump ........................: \n{}".format(e.dump()))
 
-    t = e.getById(3)
-    logger.debug("name for id 3 ...............: {}".format(t))
+    t = e.getById('003')
+    logger.debug("total for id 3 ..............: {}".format(t))
 
     t = e.getByName('frank')
-    logger.debug("turnover for frank ..........: ${:,}".format(t))
-
-    t = e.getByYear(2012, 'frank')
-    logger.debug("turnover for frank in 2012 ..: {}".format(t))
+    logger.debug("total for frank .............: ${:,}".format(t))
 
     t = e.getTotalByYear(2012)
     logger.debug("turnover for 2012 ...........: ${:,}".format(t))
+
+    t = e.getByYear('frank', 2012)
+    logger.debug("turnover for frank in 2012 ..: {}".format(t))
 
     return 0
 
